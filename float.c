@@ -7,6 +7,7 @@ int	main(void)
 	double			d;
 	int				*p, *p1;
 	int				s, e, mf, res;
+	int				ee;
 	int				md[2];
 	unsigned int	mask;
 
@@ -28,7 +29,7 @@ int	main(void)
 		e = ((*p >> 23) & 0xFF);
 		mf = (*p & 0x7FFFFF);
 		
-		printf("s = %d,  e = %d,\nm = ", s, e);
+		printf("s = %d,  e = %d,  ee = %d\nm = ", s, e, ee);
 		mask = 0x400000;
 		while (mask != 0)
 		{
@@ -49,10 +50,11 @@ int	main(void)
 
 		s = ((*p1 >> 31) & 1);
 		e = ((*p1 >> 20) & 0x7ff);				/* 11 bits */
+		ee = e - 1023;
 		md[0] = (*p1 & 0xfffff);				/* 20 lower bits */
 		md[1] = *p;								/* 32 lower bits */
 		
-		printf("s = %d,  e = %d,\nm = ", s, e);
+		printf("s = %d,  e = %d,  ee = %d\nm = ", s, e, ee);
 		mask = 0x80000;
 		while (mask != 0)
 		{
