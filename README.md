@@ -22,3 +22,6 @@ I.  progintro
 
     4. pseudo_random.c
     The program prints a pseudo-random number every second.
+
+    5.   binary_search.c
+    Implementation of the binary search function on an ascending array.
